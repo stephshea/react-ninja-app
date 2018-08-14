@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script type="text/babel">
+    class App extends React.Component {
+      state = {
+        name: "Abby",
+        age: 13
+      }
+      //binds the above as this
+       handleClick = (e) =>{
+        this.setState({
+          name: 'Steph'
+         })
+        console.log(this.state);
+      }
+      handleMouseOver = (e) =>{
+        console.log(e.target, e.pageX);
+      }
+      handleCopy = (e) =>{
+        console.log('try being original');
+      }
+      handleChange = (e) => {
+          this.setState({
+            name: e.target.value
+          });
+      }
+      handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('form submitted', this.state.name)
+      }
+      render() {
+       
+        return (
+          <div className="app-content">
+            <h1>Hey Abby!</h1>
+            <p>{ Math.floor(Math.random() * 10) }</p>
+            <p>My name is: { this.state.name } and I am { this.state.age }</p>
+
+            <form onSubmit={this.handleSubmit}>
+              <input type="text" onChange={this.handleChange} />
+              <button>Submit</button>
+            </form>
+
+            <button onClick={this.handleClick}>Click Me</button>
+            <button onMouseOver={this.handleMouseOver}>Hover Me</button>
+            <p onCopy={this.handleCopy}>What we think, we become.</p>
+          </div>
+        )
+      }
+  }
+    ReactDOM.render(<App />, document.getElementById('app'));
+  </script>
+
+</body>
+
+</html>
