@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Ninjas from "./Ninjas";
-import AddNinja from "./addNinja";
+import AddNinja from "./AddNinja";
 
 class App extends Component {
   state = {
@@ -9,16 +9,25 @@ class App extends Component {
       { name: "Steph", age: 48, belt: "blue", id: 2 },
       { name: "Judy", age: 69, belt: "purple", id: 3 }
     ]
-  };
+  }
+
+  addNinja =(ninja) => {
+     ninja.id = Math.random();
+     let ninjas = [...this.state.ninjas, ninja]
+     this.setState({
+       ninjas: ninjas
+     })
+    console.log(ninja);
+  }
   render() {
     return (
       <div className="App">
         <h1>my 4th react app</h1>
         <p>Welcome</p>
         <Ninjas ninjas={this.state.ninjas} />
-        <AddNinja />
+        <AddNinja addNinja={this.addNinja} />
       </div>
-    )
+    );
   }
 }
 
