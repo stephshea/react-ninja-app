@@ -27,6 +27,7 @@ class App extends Component {
       ninjas: ninjas
     })
   }
+
   render() {
     return (
       <div className="App">
