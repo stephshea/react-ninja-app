@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './ninja.css'
 
 //UI component
 // class Ninjas extends Component {//const Ninjas = () => {
