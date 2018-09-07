@@ -5,7 +5,7 @@ import AddNinja from "./AddNinja";
 class App extends Component {
   state = {
     ninjas: [
-      { name: "Abby", age: 13, belt: "black", id: 1 },
+      { name: "Abby", age: 13.5, belt: "black", id: 1 },
       { name: "Steph", age: 48, belt: "blue", id: 2 },
       { name: "Judy", age: 69, belt: "purple", id: 3 }
     ]
